@@ -21,4 +21,8 @@ while p==False:
 
 
      
+<<<<<<< HEAD
 print(n)        
+=======
+print(n)
+>>>>>>> master
