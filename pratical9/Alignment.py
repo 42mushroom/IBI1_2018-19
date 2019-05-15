@@ -34,6 +34,6 @@ for i in range(n):
     else:
         contrast+=seq1[i]
     
-print("Sequenceforhuman="+seq1,"contrast="+contrast,"Sequenceofamouse="+seq2)
+print("Sequenceforhuman="+seq1,"contrast="+contrast,"Sequenceofamouse="+seq3)
                 
         
