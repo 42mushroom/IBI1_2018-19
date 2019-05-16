@@ -4,9 +4,7 @@ Created on Wed Mar 20 08:59:24 2019
 
 @author: 30389
 """
-
-DNA = "atgctcagaaacgtgcagtgtttacg"
-print("give me a sequence of DNA:"+ DNA)
+DNA= input("please input a DNA sequence")
 a=DNA.count("a",0,len(DNA))
 t=DNA.count("t",0,len(DNA))
 c=DNA.count("c",0,len(DNA))

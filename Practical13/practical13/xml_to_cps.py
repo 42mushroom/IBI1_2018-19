@@ -11,7 +11,7 @@ def xml_to_cps():
     import xml.dom.minidom
     
     # first, convert xml to cps 
-    os.system("CopasiSE.exe -i predator-prey.xml -s predator-prey.cps")
+    os.system("C:\Program Files\copasi.org\COPASI 4.24.197\bin\CopasiSE.exe -i predator-prey.xml -s predator-prey.cps")
     
     # now comes the painful part. Just copy and paste this ok
     
@@ -53,9 +53,6 @@ def xml_to_cps():
     cpsFile = open("predator-prey.cps","w")
     cpsTree.writexml(cpsFile)
     cpsFile.close()
-    os.chdir()
-
-
     
         
         
