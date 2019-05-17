@@ -6,78 +6,77 @@ Created on Tue Apr  2 23:06:54 2019
 """
 from fractions import Fraction
 n=input("please input the number to compute 24(use ',' to divide them):" )
-a=n.split(',')#to  a a list
-bl=[int(i) for i in a]
-#b=list(map(int,a))
-#we need to judge whether the number we print in is qualified, ranged in(1,24)
-for i in bl:
+x=n.split(',')#delete , and add number to x
+yl=[int(i) for i in x]
+y=list(map(int,x))
+for i in yl:
     if i in range(1,24):
         i==i
     else:
         break
-        print("the number should range from 1 to 24") 
+        print("the number should range from 1 to 24") #judge whether the input is suitable for requests
 
 
 count = 0 #to store the recursion times
 
-#n is len(bl) 
+#n is len(yl) 
 def dfs(n):
     global count
     count = count +1
     
     if n == 1:
-        if(float(bl[0])==24):
+        if(float(yl[0])==24):
             return 1#to judge whether the final calculating result is equal to 24
         else:
             return 0
     #select two different numbers
     for i in range(0,n):
         for j in range(i+1,n):#eg.when i=0
-            a = bl[i]#a store the first element 
-            b = bl[j]#from the rest, eg.b store the second element
-            bl[j] = bl[n-1]#replace the second with the value of the final element
+            x = yl[i]#x store the first element 
+            y = yl[j]#from the rest, eg.y store the second element
+            yl[j] = yl[n-1]#replace the second with the value of the final element
             
-            bl[i] = a+b
+            yl[i] = x+y
             if(dfs(n-1)==1):#it call the function again, and this time the final element is reduced because of the reduced length,which prevent the repetitiness
                 return 1#at every step it have 4 operation(+-*/),if the operators choosen can not achieve the goal it goes back to the former step and rechoose an operator,and so on
             
-            bl[i] = a-b
+            yl[i] = x-y
             if(dfs(n-1)==1):
                 return 1  
             
-            bl[i] = b-a
+            yl[i] = y-x
             if(dfs(n-1)==1): 
                 return 1 
             
-            bl[i] = a*b
+            yl[i] = x*y
             if(dfs(n-1)==1): 
                 return 1  
             
-            if a>=1:#the number divisor can not be 0
-                #floats are not precise
-                bl[i] = Fraction(b,a)
+            if x>=1:#the number divisor can not be 0
+                yl[i] = Fraction(y,x)
                 if(dfs(n-1)==1): 
-                    return 1 
+                    return 1                 #floats are not precise
                 
-            if b>=1:
-                bl[i] = Fraction(a,b)
+            if y>=1:
+                yl[i] = Fraction(x,y)
                 if(dfs(n-1)==1): 
                     return 1 
             #Backtracking  
-            bl[i] = a
-            bl[j] = b#if the number you choose can not succeed, get back and change
+            yl[i] = x
+            yl[j] = y#if the number you choose can not succeed, get back and change
     return 0 
 
-if (dfs(len(bl))): 
+if (dfs(len(yl))): 
     print('Yes')
 else: 
     print('No')
 print('Recursion times:',count)
+# print and output the result
         
         
         
         
-
+#reference from Chen Xin
 """
 #to choose 2 numbers from the array and choose (+-*/)
 #do the binary calculation of the two numbers
