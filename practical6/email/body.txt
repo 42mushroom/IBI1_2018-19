@@ -1,0 +1,1 @@
+Dear User,\nPlease find the results of your gene set linkage analysis result in attached file.\nThis is an email sent by the server, please dont reply.\nThank you for using GSLA.'
