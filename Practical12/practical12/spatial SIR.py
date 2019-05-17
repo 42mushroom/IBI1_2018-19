@@ -14,9 +14,9 @@ outbreak=np.random.choice(range(100),2)
 population [outbreak[0], outbreak[1]] = 1
 max=0
 n=100
-m=n-1
+m=n
 population_recent=population
-for i in range(1,n):
+for i in range(0,n):
         pop=population
         pop=[x for x in pop.flatten()] 
         population_1=Counter(pop)
@@ -27,9 +27,10 @@ for i in range(1,n):
         se=0
         population_recent = np.insert(population,100, values=[[0]*100], axis=0)
         population_recent = np.insert(population_recent,100, values=[[0]*101], axis=1)
-        if i==1 or i==10 or i==50 or i==m:
+        if i==0 or i==10 or i==50:
             plt.figure(figsize = (6,4) , dpi =150)
             plt.imshow (population,cmap='viridis',interpolation='nearest')
+            plt.savefig( "figure" + str(i), type="png")
         for sep in population:
             for p in range(0, len(sep)): 
                 if population[se,p]==0 and se==0 and p==0 and (population_recent[se,p+1]==1 or population_recent[se+1,p]==1 or population_recent[se+1,p+1]==1):
@@ -49,4 +50,5 @@ for i in range(1,n):
 print(num1,max)
 plt.figure(figsize = (6,4) , dpi =150)
 plt.imshow (population,cmap='viridis',interpolation='nearest')
+plt.savefig( "figure" + str(n), type="png")
 

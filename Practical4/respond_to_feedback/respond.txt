@@ -1,0 +1,2 @@
+change the type of X and Y to boolean
+add a list called Collatz sequence and print it

@@ -1,0 +1,1 @@
+use input() to put in variables.
